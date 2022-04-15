@@ -31,10 +31,10 @@ class UserProfileManager(BaseUserManager):
         return user
 
 
-class UserProfile(AstractBaseUser, PermissionMixin):
+class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     email = models.EmailField(max_length=255, unique=True)
-    name = models.Charfield(max_length=225)
+    name = models.CharField(max_length=225)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
@@ -51,6 +51,6 @@ class UserProfile(AstractBaseUser, PermissionMixin):
         """Retrieve short name of user"""
         return self.name
 
-    def __str__(self);
+    def __str__(self):
         """Return string representation of our user"""
         return self.email
