@@ -1,4 +1,4 @@
-from rest_framework.views import AIView
+from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
@@ -14,4 +14,4 @@ class HelloApiView(APIView):
             'Is mapped manually to URLS',
         ]
 
-        return Response({'message':'Hello', 'an_apiview':an-apiview})
+        return Response({'message':'Hello', 'an_apiview':an_apiview})
