@@ -68,13 +68,13 @@ class HelloViewSet(viewsets.ViewSet):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            name = serializer.validate_data.get('name')
+            name = serializer.validated_data.get('name')
             message = f'Hello {name}!'
-            return Response({'messaage': messsage})
+            return Response({'message': message})
         else:
             return Response(
                 serializer.errors,
-                statu=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST
             )
 
     def retrieve(self, request, pk=None):
